@@ -76,7 +76,7 @@ func ASTNodeFromValue(value Value) ast.Node {
 }
 
 func ASTLeafFromValue(s String) ast.Leaf {
-	return ast.Leaf(*parser.NewBareScanner(s.offset, s.String()))
+	return ast.Leaf(*parser.NewScannerAt(s.String(), s.offset, len(s.String())))
 }
 
 func ASTBranchFromValue(b Tuple) ast.Branch {
